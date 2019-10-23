@@ -1,4 +1,4 @@
-package com.redis.lock.tools;
+package com.lock.redis.lock;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;

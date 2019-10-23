@@ -1,12 +1,8 @@
-package com.zookeeper.lock;
+package com.lock.zookeeper.lock;
 
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.serialize.SerializableSerializer;
-import org.apache.curator.RetryPolicy;
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +20,7 @@ public class ZookeeperLock implements Lock {
     private String beforePath;// 当前请求的节点前一个节点
     private String currentPath;// 当前请求的节点
     private static final String LOCK_PATH = "/LOCK";
-    private static final String ZOOKEEPER_IP_PORT = "192.168.152.130:2181";
+    private static final String ZOOKEEPER_IP_PORT = "127.0.0.1:2181";
     private ZkClient client = new ZkClient(ZOOKEEPER_IP_PORT, 4000, 4000, new SerializableSerializer());
 
     public ZookeeperLock(){
